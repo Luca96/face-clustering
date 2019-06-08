@@ -7,6 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/1RjcpP7vddxGpSFmil1q0MieCZzz_7mut
 """
 
+!pip install wget
+
 import os
 import cv2    
 import keras
@@ -14,6 +16,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import random
+import wget
 
 from keras.models import Model 
 from keras.layers import Dropout, Dense, BatchNormalization
@@ -284,7 +287,7 @@ model.compile(loss='cosine_proximity',
 # -- Checkpointing: at each epoch, the best model so far is saved
 # ------------------------------------------------------------------------------
 
-model_path = f"{save_path}/keras/weights-FC37-MobileNetV2-" + "{val_binary_accuracy:.2f}.hdf5"
+model_path = f"{save_path}/UL19/weights-FC37-MobileNetV2-2-" + "{val_binary_accuracy:.2f}.hdf5"
 
 checkpoint = ModelCheckpoint(
     model_path,
@@ -300,7 +303,7 @@ checkpoint = ModelCheckpoint(
 
 history = model.fit_generator(
     train_generator,
-    epochs=num_epochs,
+    epochs=4,
     steps_per_epoch=len(train_generator),
     validation_data=valid_generator,
     validation_steps=len(valid_generator),

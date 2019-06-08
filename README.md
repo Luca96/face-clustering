@@ -6,7 +6,7 @@ Clusterize faces according to facial attributes. FVAB final course project [UL19
 ## Project Structure
 
 * **weights/:** contains the weights of the trained model. The model is heavily based on the MobileNetV2 architecture, and is able to infer 37 facial attributes with an **accuracy of 90.95%**.
-* **notebook/:** contains the Jupiter Notebook version of the code. Running the code as notebook (either with **Jupiter**, Google **Colab** or **Kaggle** Notebook) is highly suggested. All the work is organized into three sections:
+* **notebook/:** contains the Jupiter Notebook version of the code. Running the code as notebook (either with **Jupyter**, Google **Colab** or **Kaggle** Notebook) is highly suggested. All the work is organized into three sections:
   1. `UL19_Dataset`: Shows how to load and deal with the CelebA dataset. There's a data exploration section which shows how the data is structured and distributed.
   2. `UL19_Training`: Details the model architecture, the training phase (data augmentations, model optimizer, checkpointing), and the testing phase.
   3. `UL19_Clustering`: Puts everything together. You can load your data from multiple sources (CelebA and LFW in the provided code), and let the model infer the attributes. After that, the faces (along with their attributes label) can be grouped into clusters. 
@@ -21,7 +21,7 @@ Clusterize faces according to facial attributes. FVAB final course project [UL19
 2. **(Install libraries):** Only in case you want to test the code (py scripts) on your local machine. The following libraries are required: ***Keras***, ***Tensorflow*** (possibly with GPU compatibly), ***Numpy***, ***Sklearn***, ***Pandas***, ***Matplotlib***, ***OpenCV***, wget (used only to download stuff).
 
 3. **Edit model path:** Before running the code check the model path! In the code I assume that the model is loaded from Google Drive. So you can: 
-   * Change every path according to the `weighs` folder of the repo.
+   * Change every path according to the `weights\` folder of the repo.
    * Or, upload the model on your Google Drive.
 
 ---
