@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1RjcpP7vddxGpSFmil1q0MieCZzz_7mut
 """
 
-!pip install wget
-
 import os
 import cv2    
 import keras
@@ -16,7 +14,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import random
-import wget
 
 from keras.models import Model 
 from keras.layers import Dropout, Dense, BatchNormalization
@@ -52,9 +49,12 @@ def load_from_drive(fname):
 # -- Downloading CelebA
 # ------------------------------------------------------------------------------
 
-celeba_url = 'https://drive.google.com/open?id=1rS0HC0kLqWjyFIm678mrXWVFReGF7qyM'
+!pip install kaggle
 
-wget.download(celeba_url, 'celeba-dataset.zip')
+os.environ['KAGGLE_USERNAME'] = "lucaanzalone"
+os.environ['KAGGLE_KEY'] = "906701c2b9665f810d3c81f810391c89"
+
+!kaggle datasets download -d jessicali9530/celeba-dataset
 
 # ------------------------------------------------------------------------------
 # -- unzipping and storing to 'celeba-folder'
@@ -200,8 +200,8 @@ model.summary()
 """
 
 #@title Training Parameters
-batch_size = 64 #@param ["64", "80", "96", "128"] {type:"raw", allow-input: true}
-num_epochs = 8 #@param ["8", "16", "32"] {type:"raw", allow-input: true}
+batch_size = 80 #@param ["64", "80", "96", "128"] {type:"raw", allow-input: true}
+num_epochs = 12 #@param ["8", "16", "32"] {type:"raw", allow-input: true}
 
 # ------------------------------------------------------------------------------
 # -- Preparing Data Generators for training and validation set
@@ -287,7 +287,7 @@ model.compile(loss='cosine_proximity',
 # -- Checkpointing: at each epoch, the best model so far is saved
 # ------------------------------------------------------------------------------
 
-model_path = f"{save_path}/UL19/weights-FC37-MobileNetV2-2-" + "{val_binary_accuracy:.2f}.hdf5"
+model_path = f"{save_path}/UL19/weights-FC37-MobileNetV2-" + "{val_binary_accuracy:.2f}.hdf5"
 
 checkpoint = ModelCheckpoint(
     model_path,
@@ -303,7 +303,7 @@ checkpoint = ModelCheckpoint(
 
 history = model.fit_generator(
     train_generator,
-    epochs=4,
+    epochs=num_epochs,
     steps_per_epoch=len(train_generator),
     validation_data=valid_generator,
     validation_steps=len(valid_generator),
@@ -320,7 +320,7 @@ def plot_model_history(history):
   plt.title('Model accuracy')
   plt.ylabel('Accuracy')
   plt.xlabel('Epoch')
-  plt.legend(['Train', 'Test'], loc='upper left')
+  plt.legend(['Train', 'Validation'], loc='upper left')
   plt.show()
 
   # Plot training & validation loss values

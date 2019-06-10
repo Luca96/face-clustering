@@ -7,13 +7,10 @@ Original file is located at
     https://colab.research.google.com/drive/1H6oIyEL0lR4P7Cv_zNnFmeT8_LY9bb5G
 """
 
-!pip install wget
-
 import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import wget
 
 plt.style.use('ggplot')
 
@@ -29,9 +26,12 @@ plt.style.use('ggplot')
 # -- Downloading CelebA
 # ------------------------------------------------------------------------------
 
-celeba_url = 'https://drive.google.com/open?id=1rS0HC0kLqWjyFIm678mrXWVFReGF7qyM'
+!pip install kaggle
 
-wget.download(celeba_url, 'celeba-dataset.zip')
+os.environ['KAGGLE_USERNAME'] = "lucaanzalone"
+os.environ['KAGGLE_KEY'] = "906701c2b9665f810d3c81f810391c89"
+
+!kaggle datasets download -d jessicali9530/celeba-dataset
 
 # ------------------------------------------------------------------------------
 # -- unzipping and storing to 'celeba-folder'
