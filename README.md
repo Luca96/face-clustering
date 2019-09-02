@@ -3,6 +3,8 @@ Clusterize faces according to facial attributes. FVAB final course project [UL19
 
 > The work presented here, is inspired by the paper: ***"Deep Learning Face Attributes in the Wild "*** by Ziwei Liu et al.
 
+For further information, please refer to our [whitepaper](https://github.com/Luca96/face-clustering/blob/master/whitepaper.pdf).
+
 ## Project Structure
 
 * **weights/:** contains the weights of the trained model. The pre-trained model is heavily based on the MobileNetV2 architecture, and is able to infer 37 facial attributes with an **accuracy of 90.95%**.
