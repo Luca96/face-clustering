@@ -9,7 +9,7 @@ Clusterize faces according to facial attributes. FVAB final course project [UL19
 * **notebook/:** contains the Jupiter Notebook version of the code (to be precise are Colab notebooks). Running the code as notebook (either with **Jupyter**, Google **Colab** or **Kaggle** Notebook) is highly suggested. All the work is organized into three sections:
   1. `UL19_Dataset`: Shows how to load and deal with the CelebA dataset. There's a data exploration section which shows how the data is structured and distributed.
   2. `UL19_Training`: Details the model architecture, the training phase (data augmentations, model optimizer, checkpointing), and the testing phase.
-  3. `UL19_Clustering`: Puts everything together. You can load your data from multiple sources (CelebA and LFW in the provided code), and let the model infer the attributes. After that, the faces (along with their attributes label) can be grouped into clusters. 
+  3. `UL19_Clustering`: Puts everything together. You can load your data from multiple sources ([CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) and [LFW](http://vis-www.cs.umass.edu/lfw/) in the provided code), and let the model infer the attributes. After that, the faces (along with their attributes label) can be grouped into clusters. 
 * **py/:** Pure Python version of the notebooks, structured has above and generating from them.
 
 ---
@@ -34,8 +34,8 @@ Here we show some qualitative results, obtained by grouping faces into clusters.
 
 From a given cluster, we **summarize** it by:
 
-* An **Attribute-occurrence chart**: for every attribute, it shows how many times it occurs. This is useful to: (1) spot *noisy-attributes*: the ones with low occurrence frequency, and (2) understand the quality of the cluster by analyzing the distribution of the attributes. 
-* An **Eigenface:** it's able to synthesize the prominent attributes (the ones with the greater frequency) at a visual level. A cluster's eigenface carries two type of information at the same time. It shows what are the principal (more common) attributes within that cluster, and implicitly their occurrence frequency (an eigenface vary according to the frequency of attributes).
+* **Attribute-occurrence chart**: for every attribute, it shows how many times it occurs. This is useful to: (1) spot *noisy-attributes*: the ones with low occurrence frequency, and (2) understand the quality of the cluster by analyzing the distribution of the attributes. 
+* **Eigenface:** it's able to synthesize the prominent attributes (the ones with the greater frequency) at a visual level. A cluster's eigenface carries two type of information at the same time. It shows what are the principal (more common) attributes within that cluster, and implicitly their occurrence frequency (an eigenface vary according to the frequency of attributes).
 
 ![blonde_cluster](images/blonde_cluster.png)
 
