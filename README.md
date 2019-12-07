@@ -1,9 +1,25 @@
 # Face Clustering
-Clusterize faces according to facial attributes. FVAB final course project [UL19]. 
+Clusterize faces according to facial attributes. FVAB final master course project [UL19], taught at University of Salerno (UNISA).
 
 > The work presented here, is inspired by the paper: ***"Deep Learning Face Attributes in the Wild "*** by Ziwei Liu et al.
 
 For further information, please refer to our [whitepaper](https://github.com/Luca96/face-clustering/blob/master/whitepaper.pdf).
+
+## Paper
+We've recently published a [paper](https://link.springer.com/chapter/10.1007/978-981-15-1301-5_9) that heavily relies on this work. If you use this code for your own research, please cite our paper.
+
+```
+@inproceedings{anzalone2019transfer,
+  title={Transfer Learning for Facial Attributes Prediction and Clustering},
+  author={Anzalone, Luca and Barra, Paola and Barra, Silvio and Narducci, Fabio and Nappi, Michele},
+  booktitle={International Conference on Smart City and Informatization},
+  pages={105--117},
+  year={2019},
+  organization={Springer}
+}
+```
+
+---
 
 ## Project Structure
 
